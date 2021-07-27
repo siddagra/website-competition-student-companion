@@ -9,7 +9,7 @@ Website for Student Companion problem. Ahmedabad University Programming Club.
 
 - Currently I have enabled anyone to be an admin so that it is easier to judge the admin panel. I have already coded the rules for firebase database security so that no one but the admin can make changes to the courses, but those are disabled as of now so that any judge can login and view the admin panel. 
 
-- Also login from facebook, github, and microsoft accounts is not enabled yet as it requires hosting/registering the app on the respective site, which is a long process for some sites. **Google login, email login, and sign in as guest work as intended.**
+- Login from facebook, github, and microsoft accounts is not enabled yet as it requires hosting/registering the app on the respective site, which is a long process for some sites. **Google login, email login, and sign in as guest work as intended.**
 
 
 - Most of the bundle.js size for this project comes from the code/libraries for the firebase API.
