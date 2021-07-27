@@ -44,7 +44,8 @@
   form {
     background: rgba(255, 255, 255, 0.3);
     padding: 3em;
-    height: 500px;
+    height: fit-content;
+    width: 500px;
     border-radius: 20px;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -199,7 +200,11 @@
 
   ul {
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-row-gap: 20px;
+    grid-template-rows: repeat(auto);
+    grid-auto-flow: row;
     transform-style: preserve-3d;
   }
 
@@ -296,6 +301,25 @@
 
   ul li:nth-child(4):hover span {
     background: #fceb00 !important;
+  }
+  @media only screen and (max-width: 800px) {
+    .container {
+      width: 80%;
+    }
+    form {
+      width: 100%;
+    }
+    .drop {
+      visibility: hidden;
+    }
+  }
+  @media only screen and (max-width: 625px) {
+    .container {
+      width: 120%;
+    }
+    form {
+      width: 100%;
+    }
   }
 </style>
 

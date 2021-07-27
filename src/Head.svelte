@@ -61,6 +61,12 @@
       height: fit-content;
       position: relative;
     }
+    .s-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-rows: repeat(auto);
+      grid-auto-flow: row;
+    }
   </style>
   <link
     href="https://fonts.googleapis.com/icon?family=Material+Icons"

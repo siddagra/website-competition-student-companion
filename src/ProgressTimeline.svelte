@@ -5,7 +5,7 @@
   let creditsLeft = totalCreditsReq - creditsDone;
 </script>
 
-<style lang="scss">
+<style>
   .cardTop {
     width: 497px;
     height: 240px;
@@ -23,73 +23,70 @@
     left: 71px;*/
     margin-bottom: 20px;
     height: fit-content;
-
     background: #ecf1f524;
     mix-blend-mode: normal;
     backdrop-filter: blur(15px);
-
     overflow: hidden;
     box-shadow: 0px 20px 53px -30px rgba(95, 102, 173, 0.566816);
     border-radius: 10px;
+  }
 
-    h2 {
-      text-transform: uppercase;
-      font-size: 3em;
-    }
+  .timeline h2 {
+    text-transform: uppercase;
+    font-size: 3em;
+  }
 
-    .subheading {
-      line-height: 22px;
-      /* identical to box height */
-      margin-left: 66px;
+  .timeline .subheading {
+    line-height: 22px;
+    /* identical to box height */
+    margin-left: 66px;
+    /*color: #ffffff;*/
+  }
 
-      /*color: #ffffff;*/
-    }
+  .timeline .box {
+    width: 100%;
+    margin-top: 99.5px;
+  }
 
-    .box {
-      width: 100%;
-      margin-top: 99.5px;
+  .timeline .box .container {
+    width: 100%;
+    display: flex;
+    padding-bottom: 60px;
+  }
 
-      .container {
-        width: 100%;
-        display: flex;
-        padding-bottom: 60px;
+  .timeline .box .container .lines {
+    margin-left: 40px;
+    margin-top: 6px;
+  }
 
-        .lines {
-          margin-left: 40px;
-          margin-top: 6px;
+  .timeline .box .container .lines .dot {
+    width: 14px;
+    height: 14px;
+    background: #d1d6e6;
+    border-radius: 7px;
+  }
 
-          .dot {
-            width: 14px;
-            height: 14px;
-            background: #d1d6e6;
-            border-radius: 7px;
-          }
+  .timeline .box .container .lines .line {
+    height: 20px;
+    width: 4px;
+    background: #d1d6e6;
+    margin-left: 5.3px;
+  }
 
-          .line {
-            height: 20px;
-            width: 4px;
-            background: #d1d6e6;
-            margin-left: 5.3px;
-          }
-        }
+  .timeline .box .container .card {
+    width: 249px;
+    padding: 5px;
+    text-transform: capitalize;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    /*for light mode*/
+    box-shadow: 0 2px 2px 0 #c7c7c740;
+    /*for dark mode*/
+    box-shadow: 0px 16px 15px -10px rgba(216, 216, 216, 0.431);
+  }
 
-        .card {
-          width: 249px;
-          padding: 5px;
-          text-transform: capitalize;
-          border-radius: 10px;
-          margin-bottom: 10px;
-          /*for light mode*/
-          box-shadow: 0 2px 2px 0 #c7c7c740;
-          /*for dark mode*/
-          box-shadow: 0px 16px 15px -10px rgba(216, 216, 216, 0.431);
-
-          &.mid {
-            height: 71px;
-          }
-        }
-      }
-    }
+  .timeline .box .container .card.mid {
+    height: 71px;
   }
 </style>
 
