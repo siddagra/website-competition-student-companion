@@ -46,6 +46,11 @@
     min-height: 1000px;
     padding-right: 30px;
   }
+  @media only screen and (max-width: 1200px) {
+    .app {
+      margin: 0px;
+    }
+  }
 </style>
 
 <BackgroundEffects />
