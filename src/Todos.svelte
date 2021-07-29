@@ -20,7 +20,6 @@
   let description = "";
 
   function addTodo(todoText) {
-    console.log("description: ", description);
     if (task.length > 0)
       userDocRef.update(
         {

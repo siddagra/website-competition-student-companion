@@ -44,8 +44,7 @@
     course =>
       (isEmpty(creditsFilter) || creditsFilter.includes(course.credits)) &&
       (isEmpty(GERFilter) || GERFilter.includes(course.GERCategory)) &&
-      (isEmpty(subjectFilter) ||
-        subjectFilter.includes(course.subjectFilter)) &&
+      (isEmpty(subjectFilter) || subjectFilter.includes(course.subject)) &&
       (searchFilter == undefined ||
         course.name
           .toLowerCase()
@@ -65,6 +64,7 @@
   /*function to find average rating.
   While the code may be complicated, 
   it is the only way to get average user ratings across multiple users
+  while mantaining security in firebase database backend
   with the fastest possible efficiency of O(n) as it uses hashtables*/
   /* takes collection of ratings (ratingsColl),
   and returns data in the following structure:
@@ -91,18 +91,16 @@
   }
   // set average ratings to update dynamically using $: operator
   $: averageRatings = getAverageRatings(ratingsColl);
-  //merging courses and ratings so that each course has a rating
+  //merging courses and averageRatings objects
   $: courses = courses.map((item, i) => {
     if (averageRatings[i] && item.code === averageRatings[i].code) {
       //merging two objects
       return Object.assign({}, item, averageRatings[i]);
     } else return item;
   });
-  $: console.log(courses);
 
   //function to add a course to the database when user clicks "ADD" button
   function addCourse(courseCode) {
-    console.log(courseCode);
     userDocRef.update(
       {
         courses: firebase.firestore.FieldValue.arrayUnion(courseCode)
@@ -146,10 +144,15 @@
   {#each filteredCourses as course, i}
     <ExpansionPanel>
       <span slot="header">{course.code}: {course.name}</span>
-      <div style="display:flex; flex-direction:column">
-        <div>{course.description}</div>
+      <div style="display:flex; flex-direction: column; width:100%">
+        <Row>
+          <Col>
+            <div>{course.description}</div>
+          </Col>
+        </Row>
 
         <!--additional information-->
+        <!--
         <ExpansionPanels accordion>
           <ExpansionPanel>
             <span slot="header">Professors</span>
@@ -161,14 +164,26 @@
               {/each}
             </div>
           </ExpansionPanel>
-        </ExpansionPanels>
+        </ExpansionPanels>-->
 
-        <div>
-          <Button on:click={addCourse(course.code)}>Add</Button>
-          {#if averageRatings[i]}
-            <Rate value={averageRatings[i].rating} readonly={true} />
+        <Row>
+          {#if course.GERCategory}
+            <Col>GERCategory: {course.GERCategory}</Col>
           {/if}
-        </div>
+        </Row>
+        <Row>
+          <Col>Credits: {course.credits}</Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button on:click={addCourse(course.code)}>Add</Button>
+          </Col>
+          <Col>
+            {#if averageRatings[i]}
+              <Rate value={averageRatings[i].rating} readonly={true} />
+            {/if}
+          </Col>
+        </Row>
       </div>
     </ExpansionPanel>
   {:else}No courses found...{/each}

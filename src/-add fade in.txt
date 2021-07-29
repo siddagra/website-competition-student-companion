@@ -1,0 +1,11 @@
+-add fade in
+-progress timeline color fix darkmode!
+-add loading components
+-add color to "add" and "remove"
+-add propper validation checking to form
+-add modals/popups
+-cleanup code and add comments
+-sort by date
+--courses completed progression table overview
+--add timestamp to progress timeline
+--fix duplicate entry issue

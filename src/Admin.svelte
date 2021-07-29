@@ -13,11 +13,9 @@
   let courseCode, courseName, courseDesc, credits, subject, GERCategory;
 
   //validation of all fields
-  let validationArray = new Array(10).fill(false);
+  let validationArray = new Array(10);
   //declare rules for required fields
   const rules = [v => !!v || "Required"];
-  $: console.log(validationArray);
-
   //variable to handle button UI
   let validationError = false;
 

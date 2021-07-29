@@ -4,7 +4,6 @@
   export let todo;
   export let userDocRef;
   function removeTodo(task) {
-    console.log(task);
     userDocRef.update(
       {
         todos: firebase.firestore.FieldValue.arrayRemove(task)
