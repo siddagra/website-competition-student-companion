@@ -29,7 +29,7 @@
         subject: subject,
         description: courseDesc,
         GERCategory: GERCategory,
-        courseId: newCourse.id,
+        courseId: newCourseRef.id,
         createdTime: firebase.firestore.Timestamp.fromDate(new Date())
       });
     } else {
